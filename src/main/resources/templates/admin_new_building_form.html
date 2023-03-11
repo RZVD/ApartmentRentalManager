@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Users</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/css/signup.css}" href="../static/css/signup.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Splash&display=swap"
+    />
+</head>
+<body>
+<h1>Company Name</h1>
+<div class="card">
+    <form action="/admin/buildings/add">
+        <h2>New Building</h2>
+        <input
+                type="text"
+                name="buildingName"
+                id="buildingName"
+                placeholder="BuildingName"
+        />
+        <input
+                type="text"
+                name="buildingDescription"
+                id="buildingDescription"
+                placeholder="Description"
+        />
+        <input type="text" name="address" id="address" placeholder="Address"/>
+        <input
+                type="text"
+                name="buildingManagerUsername"
+                id="buildingManagerUsername"
+                placeholder="Enter building manager username"
+        />
+        <input
+                type="text"
+                name="buildingPhone"
+                id="buildingPhone"
+                placeholder="Phone Number"
+        />
+        <button type="submit" name="Submit">Add building</button>
+    </form>
+
+    <a href="#" onclick="javascript:window.history.back(-1);return false;">Cancel</a>
+</div>
+</body>
+</html>

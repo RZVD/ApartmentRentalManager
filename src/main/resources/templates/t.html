@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Etch a Sketch</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='app.js' defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Splash&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header"><p>Etch a Sketch</p></header>
+<div class="content">
+    <div class="options">
+        <div class="slider_box">
+            <input type="range" value="16" step="1" min="1" max="64" class="slider">
+        </div>
+        <ul>
+            <li><input type="color" value="#d3d3d3" id="colorpicker"></li>
+            <li><button class="color">Color</button></li>
+            <li><button class="shade">Shade</button></li>
+            <li><button class="rainbow">Rainbow</button></li>
+            <li><button class="eraser">Eraser</button></li>
+            <li><button class="clear">Clear</button></li>
+
+        </ul>
+
+    </div>
+
+    <div class="container"></div>
+
+</div>
+<footer></footer>
+
+</body>
+</html>

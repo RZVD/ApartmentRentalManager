@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Users</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/css/signup.css}" href="../static/css/signup.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Splash&display=swap"
+    />
+</head>
+<body>
+<h1>Company Name</h1>
+<div class="card">
+
+    <div class="workersForm">
+        <form th:action="@{'/admin/assign/' + ${requestId}}">
+            <select name="worker1">
+                <option>Worker1</option>
+                <option name="worker1" id="worker1" th:each="worker : ${workers}" th:value="${worker.getUsername}"
+                        th:text="${worker.getUsername}"></option>
+            </select >
+
+            <select name="worker2">
+                <option>Worker2</option>
+                <option name="worker2" id="worker2" th:each="worker : ${workers}" th:value="${worker.getUsername}"
+                        th:text="${worker.getUsername}"></option>
+            </select>
+            <button type="submit" name="Submit">Assign workers</button>
+        </form>
+    </div>
+
+    <a href="#" onclick="javascript:window.history.back(-1);return false;">Cancel</a>
+</div>
+</body>
+</html>

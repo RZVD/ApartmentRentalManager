@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Users</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/css/view.css}" href="../static/css/view.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Splash&display=swap"
+    />
+</head>
+<body>
+
+<header>
+    <h1>Company Name</h1>
+    <a href="/dashboard/index" class="homelink"><span>Home</span></a>
+</header>
+<div class="container">
+    <a th:href="@{'/admin/apartments/form/' + ${buildingId}}">
+        <button>Add new apartment</button>
+    </a>
+
+
+    <table>
+        <tr>
+            <td><p>Apartment Number</p></td>
+            <td><p>Tenant username</p></td>
+            <td><p>Tenant Legal Name</p></td>
+            <td><p>Delete</p></td>
+            <td>Add payment</td>
+            <td><p>Change tenant</p></td>
+        </tr>
+        <tr th:each="apartment : ${apartments}">
+            <td><p th:text="${apartment.getApartmentNumber}"></p></td>
+            <td><p th:text="${apartment.getTenant.getUsername}"></p></td>
+            <td><p th:text="${apartment.getTenant.getLegalName}"></p></td>
+            <td><a th:href="@{'/admin/apartments/delete/' + ${apartment.getApartmentId}} + '/' + ${buildingId}">
+                <button>Delete</button>
+            </a></td>
+            <td><a th:href="@{'/admin/payments/form/' + ${apartment.getApartmentId} + '/' + ${buildingId}}">
+                <button>Add payment</button>
+            </a></td>
+            <td><a th:href="@{'/admin/apartments/update/form/' + ${apartment.getApartmentId} + '/' + ${buildingId}}">
+                <button>Change tenant</button>
+            </a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

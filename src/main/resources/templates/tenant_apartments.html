@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Users</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/css/view.css}" href="../static/css/view.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Splash&display=swap"
+    />
+</head>
+<body>
+
+<header>
+    <h1>Company Name</h1>
+    <a href="/dashboard/index" class="homelink"><span>Home</span></a>
+</header>
+<div>
+    <table>
+        <tr>
+            <td>Building</td>
+            <td>Apt. Nr</td>
+            <td>Nr Of Rooms</td>
+            <td>Usable area</td>
+            <td>Request Repair</td>
+            <td>Pay rent</td>
+        </tr>
+        <tr th:each="apartment : ${rentedApartments}">
+            <td><p th:text="${apartment.getBuilding.getBuildingName}"></p></td>
+            <td><p th:text="${apartment.getApartmentNumber}"></p></td>
+            <td><p th:text="${apartment.getNumberOfRooms}"></p></td>
+            <td><p th:text="${apartment.getUsableArea}"></p></td>
+            <td><a th:href="@{'/tenant/request/form/' + ${apartment.getApartmentId}}">Request repair</a></td>
+            <td th:if="${apartment.needsPayment}" ><a th:href="@{'/tenant/pay/' + ${apartment.getApartmentId}}"><button>Pay</button></a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

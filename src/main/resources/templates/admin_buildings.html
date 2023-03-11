@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+<head>
+    <title>Users</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/css/view.css}" href="../static/css/signup.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Splash&display=swap"
+    />
+</head>
+<body>
+
+<header>
+    <h1>Company Name</h1>
+    <a href="/dashboard/index" class="homelink"><span>Home</span></a>
+</header>
+<div class="container">
+    <a href="/admin/buildings/form">
+        <button>
+            Add new building
+        </button>
+    </a>
+
+    <table style="table, th, td {border: 1px solid;}">
+        <tr>
+            <td>Building Name</td>
+            <td>Address</td>
+            <td>Building Description</td>
+            <td>View Apartments</td>
+            <td>Delete Apt Building</td>
+        </tr>
+        <tr th:each="building : ${buildings}">
+            <td>
+                <p th:text="${building.getBuildingName}"></p>
+            </td>
+            <td>
+                <p th:text="${building.getAddress}"></p>
+            </td>
+            <td>
+                <p th:text="${building.getBuildingDescription}"></p>
+            </td>
+            <td>
+                <a th:href="@{'/admin/apartments/' + ${building.getBuildingId}}">
+                    <button>View apartments</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{'/admin/buildings/delete/' + ${building.getBuildingId}}">
+                    <button>Delete apartment building</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
